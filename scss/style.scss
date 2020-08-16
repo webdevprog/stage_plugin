@@ -1,11 +1,13 @@
-$color-primary: #68968c;
+$color-primary: #96b2b3;
 $color-secondary: #eaeaea;
 $color-white: #ffffff;
 
 $item-width: 75px;
 $item-heigth: 75px;
+$border-width: 4px;
 
-$border-width: 2px;
+$font-size-default: 16px;
+$font-size-title: 20px;
 
 * {
     padding: 0;
@@ -21,7 +23,11 @@ $border-width: 2px;
 .selection-stages {
     position: relative;
     overflow: hidden;
-    display: flex;
+    &-wrapper {
+        position: relative;
+        display: flex;
+        transition: transform 1.5s ease-in;
+    }
 
     &__part {
         display: flex;
@@ -30,14 +36,26 @@ $border-width: 2px;
     }
 
     &-item {
-        &:hover &, &--done & {
+        color: $color-primary;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--done & {
             &__number {
                 border-color: $color-primary;
+                color: transparent;
+                &:after {
+                    background-color: $color-primary;
+                }
+
                 &:before {
-                    width: 200px;
+                    display: block;
+                    /*width: 200px;
                     transition: width .5s linear;
                     background-color: $color-primary;
-                    z-index: 15;
+                    z-index: 15;*/
                 }
             }
         }
@@ -53,12 +71,14 @@ $border-width: 2px;
             border-radius: 50%;
             background-color: $color-white;
             margin-bottom: 20px;
+            font-size: $font-size-title;
+            font-weight: 600;
             z-index: 10;
-            &:after,
-            &:before {
+
+            &:after {
                 content: '';
                 position: absolute;
-                left: $item-width - $border-width;
+                right: $item-width - $border-width;
                 top: 50%;
                 transform: translate(0, -50%);
                 width: 200px;
@@ -66,11 +86,27 @@ $border-width: 2px;
                 background-color: $color-secondary;
                 z-index: 5;
             }
+
             &:before {
-                width: 0;
-                transition: width .5s linear;
+                display: none;
+                content: '\f00c';
+                position: absolute;
+                font-family: "Font Awesome 5 Free";
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $color-primary;
+                /*width: 0;
+                transition: width .5s linear;*/
             }
         }
+
         &__title {}
+    }
+
+    &-notification {
+        &__item {
+            display: none;
+        }
     }
 }
