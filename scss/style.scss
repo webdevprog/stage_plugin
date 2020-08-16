@@ -35,6 +35,7 @@ $font-size-title: 20px;
         display: flex;
         justify-content: space-between;
         flex: 1 0 100%;
+        flex-wrap: wrap;
 
         &:first-child {
             .selection-stages-item {
@@ -57,6 +58,7 @@ $font-size-title: 20px;
         align-items: flex-end;
         flex: 1 0 auto;
         color: $color-primary;
+        margin-bottom: 20px;
 
         &:hover {
             cursor: pointer;
@@ -81,9 +83,9 @@ $font-size-title: 20px;
             }
         }
 
-        &--done & {
-            &.success & {
-                &__number {
+        &--done {
+            &.success {
+                .selection-stages-item__number {
                     border-color: $color-success;
                     background-color: $color-success;
                     color: $color-white;
@@ -144,7 +146,7 @@ $font-size-title: 20px;
         &__title {}
     }
 
-    &-notification {
+    &-notices {
         &__item {
             display: none;
         }
