@@ -1,7 +1,8 @@
 $color-primary: #59918e;
 $color-secondary: #dacece;
 $color-white: #ffffff;
-$color-success: #d55023;
+$color-warning: #d55023;
+$color-success: $color-primary;
 
 $item-width: 75px;
 $item-heigth: 75px;
@@ -24,7 +25,8 @@ $font-size-title: 20px;
 .selection-stages {
     position: relative;
     overflow: hidden;
-    padding-top: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid $color-secondary;
 
     &-wrapper {
         position: relative;
@@ -42,10 +44,6 @@ $font-size-title: 20px;
             .selection-stages-item {
                 &:first-child {
                     flex: 0 1 auto;
-
-                    .selection-stages-item__number:after {
-                        display: none;
-                    }
                 }
             }
         }
@@ -56,11 +54,18 @@ $font-size-title: 20px;
         flex-direction: column;
         align-items: flex-end;
         flex: 1 0 auto;
-        color: $color-primary;
         margin-bottom: 20px;
 
         &:hover {
             cursor: pointer;
+        }
+
+        &.current & {
+            &__number {
+                &:after {
+                    background-color: $color-secondary;
+                }
+            }
         }
 
         &--done & {
@@ -80,23 +85,36 @@ $font-size-title: 20px;
                     z-index: 15;*/
                 }
             }
+            &__title {
+                color: $color-primary;
+            }
         }
 
-        &--done {
-            &.success {
-                .selection-stages-item__number {
-                    border-color: $color-success;
-                    background-color: $color-success;
-                    color: $color-white;
+        &_status_success &,
+        &_status_error & {
+            &__number {
+                color: $color-white;
+                &:after {background-color: $color-primary;}
+                &:before {display: none;}
+            }
+        }
 
-                    &:after {
-                        background-color: $color-primary;
-                    }
+        &_status_success & {
+            &__number {
+                border-color: $color-success;
+                background-color: $color-success;
+            }
+        }
 
-                    &:before {
-                        display: none;
-                    }
-                }
+        &_status_error & {
+            &__number {
+                border-color: $color-warning;
+                background-color: $color-warning;
+            }
+
+            &__title {
+                color: $color-warning;
+                font-weight: 600;
             }
         }
 
@@ -111,6 +129,7 @@ $font-size-title: 20px;
             border-radius: 50%;
             background-color: $color-white;
             margin-bottom: 20px;
+            color: $color-secondary;
             font-size: $font-size-title;
             font-weight: 600;
             z-index: 20;
@@ -141,7 +160,9 @@ $font-size-title: 20px;
             }
         }
 
-        &__title {}
+        &__title {
+            color: $color-secondary;
+        }
     }
 
     &-pagination {
@@ -154,7 +175,8 @@ $font-size-title: 20px;
             margin-bottom: 20px;
             color: $color-secondary;
 
-            &:hover, &--active {
+            &:hover,
+            &--active {
                 color: $color-primary;
             }
 

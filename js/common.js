@@ -3,7 +3,7 @@ function stagesBlock(nameBlock) {
     const getStageItems = stagesContainer.find('.selection-stages-item');
     const getNotices = stagesContainer.find('.selection-stages-notices');
     const getPagination = stagesContainer.find('.selection-stages-pagination-item');
-    let typeNotices = ['success', 'error'].join(' ');
+    let typeNotices = ['success', 'error'].map(item => `selection-stages-item_status_${item}`).join(' ');
 
     const changeStage = (index) => { 
         stagesContainer.find('.selection-stages-wrapper').css('transform', `translate(-${index * 100}%, 0)`);
@@ -14,6 +14,8 @@ function stagesBlock(nameBlock) {
     const toggleNotification = (id, elm, showNotice = false) => {
         let notices = getNotices.children(),
             typeNotice = notices.filter(`[data-stage-id="${id}"]`).data('type-stage');
+            typeNotice = typeNotice ? `selection-stages-item_status_${typeNotice}` : '';
+
         notices.slideUp();
         showNotice && notices.filter(`[data-stage-id="${id}"]`).slideDown();
         showNotice && typeNotice ? elm.addClass(typeNotice) : elm.removeClass(typeNotice);
@@ -35,6 +37,9 @@ function stagesBlock(nameBlock) {
             toggleNotification(currentIndex, item, true);
             !item.next().length && stagePart.next().length && changeStage(stagePart.next().index())
         }
+        item.addClass('current');
+        getStageItems.not(`:eq(${currentIndex-1})`).removeClass('current');
+        
     });
 
     getPagination.click(function() {changeStage($(this).index())});
