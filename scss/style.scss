@@ -1,8 +1,11 @@
 $color-primary: #59918e;
 $color-secondary: #dacece;
-$color-white: #ffffff;
 $color-warning: #d55023;
 $color-success: $color-primary;
+$color-blue: #5ec2fe;
+$color-dark-blue: #40a2de;
+$color-white: #ffffff;
+$color-black: #000;
 
 $item-width: 75px;
 $item-heigth: 75px;
@@ -17,7 +20,9 @@ $font-size-title: 20px;
     box-sizing: border-box;
 }
 
-p, ul, h2 {
+p,
+ul,
+h2 {
     margin-bottom: 15px;
 }
 
@@ -29,7 +34,7 @@ p, ul, h2 {
 .selection-stages {
     position: relative;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 20px 0 30px;
     border-bottom: 1px solid $color-secondary;
 
     &-wrapper {
@@ -100,6 +105,7 @@ p, ul, h2 {
         &_status_error & {
             &__number {
                 color: $color-white;
+
                 span {
                     transform: scale(1);
                 }
@@ -218,6 +224,41 @@ p, ul, h2 {
     &-notices {
         &__item {
             display: none;
+        }
+
+        &__btn {
+            display: inline-block;
+            border: 1px solid $color-blue;
+            padding: 10px 20px;
+            min-width: 200px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            &-item {
+                display: flex;
+                align-items: center;
+                color: $color-black;
+
+                .far {
+                    margin-right: 10px;
+                    color: $color-primary;
+                }
+
+                &--uncheck {
+                    color: $color-blue;
+
+                    .far {
+                        color: $color-blue;
+                    }
+                }
+            }
         }
     }
 }
