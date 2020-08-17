@@ -2,9 +2,15 @@ function stagesBlock(nameBlock) {
     const stagesContainer = $(`.selection-stages${nameBlock}`);
     const getStageItems = stagesContainer.find('.selection-stages-item');
     const getNotices = stagesContainer.find('.selection-stages-notices');
+    const getPagination = stagesContainer.find('.selection-stages-pagination-item');
     let typeNotices = ['success', 'error'].join(' ');
 
-    const changeStage = (index) => { stagesContainer.find('.selection-stages-wrapper').css('transform', `translate(-${index * 100}%, 0)`) };
+    const changeStage = (index) => { 
+        stagesContainer.find('.selection-stages-wrapper').css('transform', `translate(-${index * 100}%, 0)`);
+        getPagination.removeClass('selection-stages-pagination-item--active');
+        getPagination.eq(index).addClass('selection-stages-pagination-item--active');
+    };
+
     const toggleNotification = (id, elm, showNotice = false) => {
         let notices = getNotices.children(),
             typeNotice = notices.filter(`[data-stage-id="${id}"]`).data('type-stage');
@@ -30,6 +36,8 @@ function stagesBlock(nameBlock) {
             !item.next().length && stagePart.next().length && changeStage(stagePart.next().index())
         }
     });
+
+    getPagination.click(function() {changeStage($(this).index())});
 }
 
 stagesBlock('.students');

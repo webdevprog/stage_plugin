@@ -1,5 +1,5 @@
-$color-primary: #96b2b3;
-$color-secondary: #eaeaea;
+$color-primary: #59918e;
+$color-secondary: #dacece;
 $color-white: #ffffff;
 $color-success: #d55023;
 
@@ -24,6 +24,7 @@ $font-size-title: 20px;
 .selection-stages {
     position: relative;
     overflow: hidden;
+    padding-top: 20px;
 
     &-wrapper {
         position: relative;
@@ -51,8 +52,6 @@ $font-size-title: 20px;
     }
 
     &-item {
-        position: relative;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -114,19 +113,18 @@ $font-size-title: 20px;
             margin-bottom: 20px;
             font-size: $font-size-title;
             font-weight: 600;
-            z-index: 10;
+            z-index: 20;
 
             &:after {
                 content: '';
                 position: absolute;
-                right: $item-width - $border-width;
+                left: $item-width - $border-width;
                 top: 50%;
                 transform: translate(0, -50%);
                 width: 200px;
                 height: $border-width;
                 background-color: $color-secondary;
                 pointer-events: none;
-                z-index: 5;
             }
 
             &:before {
@@ -144,6 +142,36 @@ $font-size-title: 20px;
         }
 
         &__title {}
+    }
+
+    &-pagination {
+        display: flex;
+        justify-content: space-between;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: $color-secondary;
+
+            &:hover, &--active {
+                color: $color-primary;
+            }
+
+            &__number {
+                font-size: 30px;
+            }
+
+            &__name {
+                margin-left: 5px;
+                line-height: 1;
+                font-size: 12px;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 
     &-notices {

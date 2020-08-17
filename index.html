@@ -14,44 +14,63 @@
 <body>
     <div class="container">
         <div class="selection-stages students">
-            <div class="selection-stages-pagination"></div>
+            <div class="selection-stages-pagination">
+                <div class="selection-stages-pagination-item selection-stages-pagination-item--active">
+                    <div class="selection-stages-pagination-item__number">
+                        &#8544;
+                    </div>
+                    <div class="selection-stages-pagination-item__name">
+                        этап <br>
+                        отбора
+                    </div>
+                </div>
+                <div class="selection-stages-pagination-item">
+                    <div class="selection-stages-pagination-item__number">
+                        &#8545;
+                    </div>
+                    <div class="selection-stages-pagination-item__name">
+                        этап <br>
+                        отбора
+                    </div>
+                </div>
+            </div>
 
             <div class="selection-stages-wrapper">
                 <div class="selection-stages__part">
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">1</div>
-                            <div class="selection-stages-item__title">lorem-1</div>
+                            <div class="selection-stages-item__title">Заполнение <br> заявления</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">2</div>
-                            <div class="selection-stages-item__title">lorem-2</div>
+                            <div class="selection-stages-item__title">Заявление <br> на проверке</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">3</div>
-                            <div class="selection-stages-item__title">lorem-3</div>
+                            <div class="selection-stages-item__title">Заявление <br> принято</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">4</div>
-                            <div class="selection-stages-item__title">lorem-4</div>
+                            <div class="selection-stages-item__title">Приглашение <br> на испытание</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">5</div>
-                            <div class="selection-stages-item__title">lorem-5</div>
+                            <div class="selection-stages-item__title">Принял участие <br> в испытаниях</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">6</div>
-                            <div class="selection-stages-item__title">lorem-6</div>
+                            <div class="selection-stages-item__title">Отобран <br> по квоте</div>
                         </div>
                     </div>
                 </div>
@@ -59,37 +78,37 @@
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">7</div>
-                            <div class="selection-stages-item__title">lorem-7</div>
+                            <div class="selection-stages-item__title">Второй этап <br> отбора</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">8</div>
-                            <div class="selection-stages-item__title">lorem-8</div>
+                            <div class="selection-stages-item__title">На <br> рассмотрении</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">9</div>
-                            <div class="selection-stages-item__title">lorem-9</div>
+                            <div class="selection-stages-item__title">Распределен <br> по квоте</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">10</div>
-                            <div class="selection-stages-item__title">lorem-10</div>
+                            <div class="selection-stages-item__title">Направлен <br> по квоте</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">11</div>
-                            <div class="selection-stages-item__title">lorem-11</div>
+                            <div class="selection-stages-item__title">Зачислен <br> по квоте</div>
                         </div>
                     </div>
                     <div class="selection-stages-item">
                         <div class="selection-stages-item-content">
                             <div class="selection-stages-item__number">12</div>
-                            <div class="selection-stages-item__title">lorem-12</div>
+                            <div class="selection-stages-item__title">Зачислен <br> подфак</div>
                         </div>
                     </div>
                 </div>
@@ -98,7 +117,14 @@
 
             <div class="selection-stages-notices">
                 <div class="selection-stages-notices__item" data-stage-id="7" data-type-stage="error">
-                    test 7
+                    <h2>Исправьте ошибки в заявление</h2>
+
+                    <p>
+                       В вашем заявлении обнаружены ошибки. <br>
+                       Необходимо исправить ошибки в ближайшее время. 
+                    </p>
+
+                    <a href="" class="btn btn-default">Смотреть замечания</a>
                 </div>
                 <div class="selection-stages-notices__item" data-stage-id="10" data-type-stage="success">
                     test 12
