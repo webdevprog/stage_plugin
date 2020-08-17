@@ -17,6 +17,10 @@ $font-size-title: 20px;
     box-sizing: border-box;
 }
 
+p, ul, h2 {
+    margin-bottom: 15px;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -73,18 +77,20 @@ $font-size-title: 20px;
                 border-color: $color-primary;
                 color: transparent;
 
-                &:after {
-                    background-color: $color-primary;
+                span {
+                    transform: scale(0);
+                    transition: transform .5s linear;
                 }
 
                 &:before {
-                    display: block;
-                    /*width: 200px;
-                    transition: width .5s linear;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+
+                &:after {
                     background-color: $color-primary;
-                    z-index: 15;*/
                 }
             }
+
             &__title {
                 color: $color-primary;
             }
@@ -94,8 +100,17 @@ $font-size-title: 20px;
         &_status_error & {
             &__number {
                 color: $color-white;
-                &:after {background-color: $color-primary;}
-                &:before {display: none;}
+                span {
+                    transform: scale(1);
+                }
+
+                &:after {
+                    background-color: $color-primary;
+                }
+
+                &:before {
+                    display: none;
+                }
             }
         }
 
@@ -134,6 +149,11 @@ $font-size-title: 20px;
             font-weight: 600;
             z-index: 20;
 
+            span {
+                transform: scale(1);
+                transition: transform .5s linear;
+            }
+
             &:after {
                 content: '';
                 position: absolute;
@@ -144,19 +164,18 @@ $font-size-title: 20px;
                 height: $border-width;
                 background-color: $color-secondary;
                 pointer-events: none;
+                transition: all .5s linear;
             }
 
             &:before {
-                display: none;
-                content: '\f00c';
+                content: "\f00c";
                 position: absolute;
                 font-family: "Font Awesome 5 Free";
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%) scale(0);
                 color: $color-primary;
-                /*width: 0;
-                transition: width .5s linear;*/
+                transition: transform .5s linear;
             }
         }
 
