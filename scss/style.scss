@@ -52,9 +52,9 @@ h2 {
 
     &-item {
         display: flex;
-        flex: 1 0 142px;
+        flex: 1 0 122px;
         margin-bottom: 20px;
-        padding-right: 20px;
+        padding-right: 10px;
 
         &:last-child {
             flex: 1 0 auto;
@@ -209,6 +209,7 @@ h2 {
 
         &__title {
             color: $color-secondary;
+            font-size: 14px;
         }
     }
 
