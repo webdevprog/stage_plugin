@@ -27,7 +27,7 @@ h2 {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 825px;
     margin: 0 auto;
 }
 
@@ -37,47 +37,59 @@ h2 {
     padding: 20px 0 30px;
     border-bottom: 1px solid $color-secondary;
 
+
+
     &-wrapper {
         position: relative;
+        overflow-x: scroll;
         display: flex;
         transition: transform 1.5s ease-in;
-    }
 
-    &__part {
-        display: flex;
-        justify-content: space-between;
-        flex: 1 0 100%;
-        flex-wrap: wrap;
-
-        &:first-child {
-            .selection-stages-item {
-                &:first-child {
-                    flex: 0 1 auto;
-                }
-            }
+        &::-webkit-scrollbar {
+            width: 0px;
         }
     }
 
     &-item {
         display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        flex: 1 0 auto;
+        flex: 1 0 142px;
         margin-bottom: 20px;
+        padding-right: 20px;
 
-        &:hover {
-            cursor: pointer;
+        &:last-child {
+            flex: 1 0 auto;
+            padding-right: 0;
+        }
+
+        &:last-child & {
+            &-content {
+                &:after {
+                    display: none;
+                }
+            }
         }
 
         &.current & {
-            &__number {
+            &-content {
                 &:after {
                     background-color: $color-secondary;
+                }
+
+                &:before {
+                    width: 0;
                 }
             }
         }
 
         &--done & {
+
+            &-content {
+                &:before {
+                    width: 100%;
+                    transition: width .5s linear;
+                }
+            }
+
             &__number {
                 border-color: $color-primary;
                 color: transparent;
@@ -89,10 +101,6 @@ h2 {
 
                 &:before {
                     transform: translate(-50%, -50%) scale(1);
-                }
-
-                &:after {
-                    background-color: $color-primary;
                 }
             }
 
@@ -108,10 +116,6 @@ h2 {
 
                 span {
                     transform: scale(1);
-                }
-
-                &:after {
-                    background-color: $color-primary;
                 }
 
                 &:before {
@@ -139,6 +143,37 @@ h2 {
             }
         }
 
+        &-content {
+            position: relative;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:after,
+            &:before {
+                content: '';
+                position: absolute;
+                left: $item-width - $border-width;
+                top: $item-heigth / 2;
+                height: $border-width;
+                pointer-events: none;
+            }
+
+            &:after {
+                width: 100%;
+                transition: all .5s linear;
+                background-color: $color-secondary;
+            }
+
+            &:before {
+                width: 0;
+                background-color: $color-primary;
+                transition: width .5s linear;
+                z-index: 15;
+            }
+        }
+
         &__number {
             position: relative;
             display: flex;
@@ -158,19 +193,6 @@ h2 {
             span {
                 transform: scale(1);
                 transition: transform .5s linear;
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                left: $item-width - $border-width;
-                top: 50%;
-                transform: translate(0, -50%);
-                width: 200px;
-                height: $border-width;
-                background-color: $color-secondary;
-                pointer-events: none;
-                transition: all .5s linear;
             }
 
             &:before {
