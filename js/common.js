@@ -30,14 +30,15 @@ function stagesBlock(nameBlock) {
             currentIndex = item.index() + 1;
 
         if (isDone) {
-            getStageItems.slice(currentIndex - 1, getStageItems.length).removeClass(`${activeClass} ${typeNotices}`);
+            getStageItems.slice(currentIndex - 1, getStageItems.length).removeClass(`${activeClass} ${typeNotices} current`);
+            getStageItems.eq(item.index()-1).addClass('current');
             toggleNotification(currentIndex, item);
         } else {
+            item.addClass('current');
+            getStageItems.not(`:eq(${currentIndex - 1})`).removeClass('current');
             getStageItems.slice(0, currentIndex).addClass(activeClass).removeClass(typeNotices);
             toggleNotification(currentIndex, item, true);
         }
-        item.addClass('current');
-        getStageItems.not(`:eq(${currentIndex - 1})`).removeClass('current');
     });
 
     getPagination.click(function () {

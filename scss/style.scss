@@ -37,16 +37,14 @@ h2 {
     padding: 20px 0 30px;
     border-bottom: 1px solid $color-secondary;
 
-
-
     &-wrapper {
         position: relative;
-        overflow-x: scroll;
+        overflow-x: auto;
         display: flex;
         transition: transform 1.5s ease-in;
 
         &::-webkit-scrollbar {
-            width: 0px;
+            display: none;
         }
     }
 
